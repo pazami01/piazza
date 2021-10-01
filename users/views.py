@@ -1,5 +1,5 @@
 import requests
-import private
+from decouple import config
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -8,9 +8,8 @@ from .serializers import CreateUserSerializer
 
 # CODE IN THIS FILE WAS PROVIDED BY CLOUD COMPUTING CONCEPTS MODULE #
 
-CLIENT_ID = private.CLIENT_ID
-CLIENT_SECRET = private.CLIENT_SECRET
-
+CLIENT_ID = config('CLIENT_ID')
+CLIENT_SECRET = config('CLIENT_SECRET')
 
 IP_token = 'http://localhost:8000/o/token/'
 IP_revoke_token ='http://localhost:8000/o/revoke_token/'
